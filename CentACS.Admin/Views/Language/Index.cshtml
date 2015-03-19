@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CentACS.Admin.Models.LanguageModel>
+
+@{
+    ViewBag.Title = "Languages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="page-header">
+            <h2>Languages</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="btn-group">
+                <a class="btn btn-primary" href="@Url.Action("Create")">Create</a>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Key)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Key)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Key }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Key }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Key })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
