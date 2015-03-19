@@ -1,4 +1,5 @@
 ﻿using CentACS.Admin.Models;
+using CentACS.Admin.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace CentACS.Admin.Controllers
 {
     public class LanguageController : Controller
     {
-        private static List<LanguageModel> Repository = new List<LanguageModel>();
-
+        #region [ Repository ] 
+        private static LanguageRepository Repository = new LanguageRepository();
+        #endregion
 
         // GET: Language
         public ActionResult Index()
@@ -19,14 +21,14 @@ namespace CentACS.Admin.Controllers
 
             if (Repository.Count == 0)
             {
-                Repository.Add(new LanguageModel()
+                Repository.TryAdd(1, new LanguageModel()
                 {
                     Key = 1,
                     Name = "English"
                 });
 
 
-                Repository.Add(new LanguageModel()
+                Repository.TryAdd(2, new LanguageModel()
                 {
                     Key = 2,
                     Name = "Spanish"
@@ -34,6 +36,7 @@ namespace CentACS.Admin.Controllers
             }
 
             result = Repository.OrderBy(L => L.Key)
+                                .Select(L => L.Value)
                                 .ToList();
 
             return View(result);
@@ -48,7 +51,7 @@ namespace CentACS.Admin.Controllers
 
             if (results.Any())
             {
-                model = results.First();
+                model = results.First().Value;
             }
             else
             {
@@ -79,10 +82,10 @@ namespace CentACS.Admin.Controllers
                     inputModel.Name = collection["name"];
                 }
 
-                int new_key = Repository.Select(s => s.Key).Max() + 1;
+                int new_key = Repository.GetNextId();
                 inputModel.Key = new_key;
 
-                Repository.Add(inputModel);
+                Repository.TryAdd(new_key, inputModel);
 
                 return RedirectToAction("Index");
             }
@@ -97,9 +100,16 @@ namespace CentACS.Admin.Controllers
         {
             LanguageModel editModel = new LanguageModel();
 
-            
+            if (Repository.ContainsKey(id))
+            {
+                editModel = Repository[id];
+            }
+            else
+            {
+                Response.StatusCode = 404;
+            }
 
-            return View();
+            return View(editModel);
         }
 
         // POST: Language/Edit/5
@@ -108,11 +118,10 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                if (Repository.Where(L => L.Key == id).Any())
+                if (Repository.ContainsKey(id))
                 {
-                    int index = Repository.FindIndex(L => L.Key == id);
-                    Repository[index].Key = id;
-                    Repository[index].Name = collection["name"];
+                    Repository[id].Key = id;
+                    Repository[id].Name = collection["name"];
                 }
                 else
                 {
@@ -132,10 +141,9 @@ namespace CentACS.Admin.Controllers
         {
             LanguageModel deleteModel = new LanguageModel();
 
-            if (Repository.Where(L => L.Key == id).Any())
+            if (Repository.ContainsKey(id))
             {
-                int index = Repository.FindIndex(L => L.Key == id);
-                deleteModel = Repository[index];
+                deleteModel = Repository[id];
             }
             else
             {
@@ -150,13 +158,13 @@ namespace CentACS.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            LanguageModel deleteModel = new LanguageModel();
+
             try
             {
-                if (Repository.Where(L => L.Key == id).Any())
+                if (Repository.ContainsKey(id))
                 {
-                    int index = Repository.FindIndex(L => L.Key == id);
-
-                    Repository.RemoveAt(index);
+                    Repository.TryRemove(id, out deleteModel);
                 }
                 else
                 {

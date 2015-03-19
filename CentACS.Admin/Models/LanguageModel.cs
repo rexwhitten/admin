@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CentACS.Admin.Models
 {
-    public class LanguageModel
+    public class LanguageModel : IBaseModel
     {
         public Int32 Key { get; set; }
 
