@@ -20,12 +20,25 @@ namespace CentACS.Admin.Controllers
         }
         #endregion
 
-        public ActionResult Index()
+        public ActionResult Index(Int32? id)
         {
             TemplateFieldIndexViewModel viewModel = new TemplateFieldIndexViewModel();
 
-            viewModel.Fields = Repository.GetAll();
-            viewModel.Lanuages = Cluster.Languages.GetAll();
+
+            if (!id.HasValue)
+            {
+                viewModel.Fields = Repository.GetAll();
+                viewModel.Lanuages = Cluster.Languages.GetAll();
+            }
+            else
+            {
+                viewModel.Fields = Repository.Query(x => x.LanguageKey == id.Value).ToList();
+                viewModel.Lanuages = Cluster.Languages.Query(x => x.Key == id.Value).ToList();
+            }
+
+
+            //viewModel.Fields = Repository.GetAll();
+            //viewModel.Lanuages = Cluster.Languages.GetAll();
 
             return View(viewModel);
         }

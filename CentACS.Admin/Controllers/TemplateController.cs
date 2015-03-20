@@ -22,11 +22,14 @@ namespace CentACS.Admin.Controllers
         }
 
         // GET: Template
-        public ActionResult Index()
+        public ActionResult Index(Int32? Id)
         {
             List<TemplateModel> viewModel = new List<TemplateModel>();
 
-            viewModel = Repository.GetAll();
+            if (!Id.HasValue)
+                viewModel = Repository.GetAll();
+            else
+                viewModel = Repository.Query(x => x.Key == Id.Value).ToList();
 
 
             return View(viewModel);

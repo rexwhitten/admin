@@ -133,7 +133,12 @@ namespace CentACS.Admin.Repository
 
         public IEnumerable<TemplateFieldModel> Query(Func<TemplateFieldModel, bool> func)
         {
-            return this.Query(func);
+            if (this.Count == 0)
+            {
+                this.GetAll();
+            }
+
+            return this.ExecQuery(func);
         }
     }
 }
