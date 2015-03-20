@@ -168,11 +168,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Data\Master360Db.cs" />
+    <Compile Include="App_Code\Attributes\TranslationTableTypeAttribute.cs" />
     <Compile Include="App_Code\Data\ProductDb.cs" />
     <Content Include="App_Code\Data\tblMaster360_QuestionnaireItem.cs" />
     <Content Include="App_Code\Data\tblMaster360_QuestionnaireText.cs" />
     <Compile Include="App_Code\Data\tblMaster_Language.cs" />
     <Compile Include="App_Code\Data\tblMaster_Product.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorHighPerformance.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorInterpretation.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorIntro.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorReport.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageCompetencyName.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultant.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantBlendText.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantResponseBias.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantTOC.cs" />
+    <Compile Include="App_Code\Data\tblWorkplace_LanguageNarratorGroup.cs" />
+    <Compile Include="App_Code\Data\WorkplaceDb.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
