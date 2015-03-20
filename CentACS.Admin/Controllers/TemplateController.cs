@@ -13,39 +13,23 @@ namespace CentACS.Admin.Controllers
 
     public class TemplateController : Controller
     {
-        private TemplateRepository repository = new TemplateRepository();
+        private IRepository<TemplateModel> Repository
+        {
+            get
+            {
+                return Cluster.Templates;
+            }
+        }
 
         // GET: Template
         public ActionResult Index()
         {
+            List<TemplateModel> viewModel = new List<TemplateModel>();
 
-            if (repository.Count == 0)
-            {
-                repository.TryAdd(1, new TemplateModel()
-                {
-                    Key = 1,
-                    Name = "Capacitor",
-                    Product = new ProductModel()
-                    {
-                        Key = 1,
-                        Name = "Workplace 360"
-                    }
-                });
-                repository.TryAdd(2, new TemplateModel()
-                {
-                    Key = 2,
-                    Name = "Trait",
-                    Product = new ProductModel()
-                    {
-                        Key = 1,
-                        Name = "Workplace 360"
-                    }
-                });
-            }
+            viewModel = Repository.GetAll();
 
-            var model = repository.Values.ToList();
 
-            return View(model);
+            return View(viewModel);
         }
 
         // GET: Template/Details/5
@@ -53,9 +37,9 @@ namespace CentACS.Admin.Controllers
         {
             TemplateModel model = new TemplateModel();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model = repository[id];
+                model = Repository.GetOne(id);
             }
             else
             {
@@ -93,10 +77,8 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                Int32 new_key = repository.GetNextId();
-
                 TemplateModel createModel = new TemplateModel();
-                createModel.Key = new_key;
+                createModel.Key = 0;
                 createModel.Name = collection["name"];
                 createModel.Product = new ProductModel()
                 {
@@ -104,7 +86,7 @@ namespace CentACS.Admin.Controllers
                     Name = collection["product_name"]
                 };
 
-                repository.TryAdd(new_key, createModel);
+                Repository.Create(createModel);
 
                 return RedirectToAction("Index");
             }
@@ -119,20 +101,10 @@ namespace CentACS.Admin.Controllers
         {
             dynamic model = new ExpandoObject();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model.Template = repository[id];
-                model.Products = new List<ProductModel>()
-                {
-                    new ProductModel() {
-                         Key = 1,
-                         Name = "Workplace 360"
-                    },
-                    new ProductModel() {
-                         Key = 1,
-                         Name = "Schoolplace 360"
-                    },
-                };
+                model.Template = Repository.GetOne(id);
+                model.Products = Cluster.Products.GetAll();
             }
             else
             {
@@ -149,19 +121,13 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                if (repository.ContainsKey(id))
+                if (Repository.ContainsKey(id))
                 {
-                    TemplateModel model = new TemplateModel();
+                    var editModel = new TemplateModel();
 
-                    model.Key = id;
-                    model.Name = collection["name"];
-                    model.Product = new ProductModel()
-                    {
-                        Key = Int32.Parse(collection["product_key"]),
-                        Name = collection["product_name"]
-                    };
+                    // Set Values 
 
-                    repository[id] = model;
+                    Repository.Update(editModel);
                 }
                 else
                 {
@@ -181,9 +147,9 @@ namespace CentACS.Admin.Controllers
         {
             TemplateModel model = new TemplateModel();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model = repository[id];
+                model = Repository.GetOne(id);
             }
             else
             {
@@ -199,11 +165,13 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                TemplateModel deleteModel = new TemplateModel();
-
-                if (repository.ContainsKey(id))
+                if (Repository.ContainsKey(id))
                 {
-                    repository.TryRemove(id, out deleteModel);
+                    TemplateModel deleteModel = new TemplateModel();
+
+                    // Set Values 
+
+                    Repository.Remove(deleteModel);
                 }
                 else
                 {

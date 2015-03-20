@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentACS.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,22 +16,22 @@ namespace CentACS.Admin.Repository
         #endregion
 
         #region [ Repositories ] 
-        public static LanguageRepository Languages
+        public static IRepository<LanguageModel> Languages
         {
             get { return lang; }
         }
 
-        public static ProductRepository Products
+        public static IRepository<ProductModel> Products
         {
             get { return products; }
         }
 
-        public static TemplateRepository Templates
+        public static IRepository<TemplateModel> Templates
         {
             get { return templates; }
         }
 
-        public static TemplateFieldRepository TemplateFields
+        public static IRepository<TemplateFieldModel> TemplateFields
         {
             get { return templateFields;  }
         }

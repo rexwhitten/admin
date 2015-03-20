@@ -10,28 +10,16 @@ namespace CentACS.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        private static ProductRepository repository = new ProductRepository();
+        private IRepository<ProductModel> Repository
+        {
+            get { return Cluster.Products; }
+        }
 
 
         // GET: Product
         public ActionResult Index()
         {
-            if (repository.Count == 0)
-            {
-                repository.TryAdd(1, new ProductModel()
-                {
-                    Key = 1,
-                    Name = "Workplace 360"
-                });
-
-                repository.TryAdd(2, new ProductModel()
-                {
-                    Key = 2,
-                    Name = "Schoolplace 360"
-                });
-            }
-
-            var results = repository.Values.ToList();
+            var results = Repository.GetAll();
 
             return View(results);
         }
@@ -41,9 +29,9 @@ namespace CentACS.Admin.Controllers
         {
             ProductModel model = new ProductModel();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model = repository[id];
+                model = Repository.GetOne(id);
             }
             else
             {
@@ -69,13 +57,12 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                Int32 new_id = repository.GetNextId();
                 ProductModel input_model = new ProductModel();
 
-                input_model.Key = new_id;
+                input_model.Key = 0;
                 input_model.Name = collection["name"];
 
-                repository.TryAdd(new_id, input_model);
+                Repository.Create(input_model);
 
                 return RedirectToAction("Index");
             }
@@ -90,9 +77,9 @@ namespace CentACS.Admin.Controllers
         {
             ProductModel model = new ProductModel();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model = repository[id];
+                model = Repository.GetOne(id);
             }
             else
             {
@@ -108,14 +95,11 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                if (repository.ContainsKey(id))
-                {
-                    repository[id].Name = collection["name"];
-                }
-                else
-                {
-                    Response.StatusCode = 404;
-                }
+                var editModel = new ProductModel();
+
+                // Set Values 
+
+                Repository.Update(editModel);
 
                 return RedirectToAction("Index");
             }
@@ -130,9 +114,9 @@ namespace CentACS.Admin.Controllers
         {
             ProductModel model = new ProductModel();
 
-            if (repository.ContainsKey(id))
+            if (Repository.ContainsKey(id))
             {
-                model = repository[id];
+                model = Repository.GetOne(id);
             }
             else
             {
@@ -148,11 +132,13 @@ namespace CentACS.Admin.Controllers
         {
             try
             {
-                ProductModel deleteModel = new ProductModel();
-
-                if (repository.ContainsKey(id))
+                if (Repository.ContainsKey(id))
                 {
-                    repository.TryRemove(id, out deleteModel);
+                    ProductModel deleteModel = new ProductModel();
+
+                    // Set Values
+
+                    Repository.Remove(deleteModel);
                 }
                 else
                 {

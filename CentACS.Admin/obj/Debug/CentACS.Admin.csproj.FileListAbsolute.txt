@@ -53,8 +53,6 @@ D:\github\CentACS.Admin\CentACS.Admin\bin\Microsoft.Owin.Security.MicrosoftAccou
 D:\github\CentACS.Admin\CentACS.Admin\obj\Debug\CentACS.Admin.csprojResolveAssemblyReference.cache
 D:\github\CentACS.Admin\CentACS.Admin\obj\Debug\CentACS.Admin.dll
 D:\github\CentACS.Admin\CentACS.Admin\obj\Debug\CentACS.Admin.pdb
-E:\github\admin\CentACS.Admin\obj\Debug\CentACS.Admin.csprojResolveAssemblyReference.cache
-E:\github\admin\CentACS.Admin\obj\Debug\CentACS.Admin.dll
 E:\github\admin\CentACS.Admin\bin\CentACS.Admin.dll.config
 E:\github\admin\CentACS.Admin\bin\CentACS.Admin.dll
 E:\github\admin\CentACS.Admin\bin\CentACS.Admin.pdb
@@ -107,4 +105,11 @@ E:\github\admin\CentACS.Admin\bin\Microsoft.Owin.Security.OAuth.xml
 E:\github\admin\CentACS.Admin\bin\Microsoft.Owin.Security.Google.xml
 E:\github\admin\CentACS.Admin\bin\Microsoft.Owin.Security.Twitter.xml
 E:\github\admin\CentACS.Admin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\github\admin\CentACS.Admin\obj\Debug\CentACS.Admin.dll
 E:\github\admin\CentACS.Admin\obj\Debug\CentACS.Admin.pdb
+E:\github\admin\CentACS.Admin\bin\System.Net.Http.Formatting.dll
+E:\github\admin\CentACS.Admin\bin\System.Web.Http.dll
+E:\github\admin\CentACS.Admin\bin\System.Web.Http.WebHost.dll
+E:\github\admin\CentACS.Admin\bin\System.Net.Http.Formatting.xml
+E:\github\admin\CentACS.Admin\bin\System.Web.Http.xml
+E:\github\admin\CentACS.Admin\bin\System.Web.Http.WebHost.xml

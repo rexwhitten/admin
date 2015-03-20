@@ -10,5 +10,7 @@ namespace CentACS.Admin.Models
         public Int32 Key { get; set; }
 
         public String Name { get; set; }
+
+        public string Code { get; set; }
     }
 }

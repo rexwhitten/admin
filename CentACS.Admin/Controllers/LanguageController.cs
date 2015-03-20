@@ -11,7 +11,10 @@ namespace CentACS.Admin.Controllers
     public class LanguageController : Controller
     {
         #region [ Repository ] 
-        private static LanguageRepository Repository = new LanguageRepository();
+        private IRepository<LanguageModel> Repository
+        {
+            get { return Cluster.Languages; }
+        }
         #endregion
 
         // GET: Language
@@ -19,25 +22,7 @@ namespace CentACS.Admin.Controllers
         {
             List<LanguageModel> result = new List<LanguageModel>();
 
-            if (Repository.Count == 0)
-            {
-                Repository.TryAdd(1, new LanguageModel()
-                {
-                    Key = 1,
-                    Name = "English"
-                });
-
-
-                Repository.TryAdd(2, new LanguageModel()
-                {
-                    Key = 2,
-                    Name = "Spanish"
-                });
-            }
-
-            result = Repository.OrderBy(L => L.Key)
-                                .Select(L => L.Value)
-                                .ToList();
+            result = Repository.GetAll();
 
             return View(result);
         }
@@ -51,7 +36,7 @@ namespace CentACS.Admin.Controllers
 
             if (results.Any())
             {
-                model = results.First().Value;
+                model = results.First();
             }
             else
             {
@@ -82,10 +67,9 @@ namespace CentACS.Admin.Controllers
                     inputModel.Name = collection["name"];
                 }
 
-                int new_key = Repository.GetNextId();
-                inputModel.Key = new_key;
+                inputModel.Key = 0;
 
-                Repository.TryAdd(new_key, inputModel);
+                Repository.Create(inputModel);
 
                 return RedirectToAction("Index");
             }
@@ -102,7 +86,7 @@ namespace CentACS.Admin.Controllers
 
             if (Repository.ContainsKey(id))
             {
-                editModel = Repository[id];
+                editModel = Repository.GetOne(id);
             }
             else
             {
@@ -120,8 +104,11 @@ namespace CentACS.Admin.Controllers
             {
                 if (Repository.ContainsKey(id))
                 {
-                    Repository[id].Key = id;
-                    Repository[id].Name = collection["name"];
+                    LanguageModel editModel = new LanguageModel();
+
+                    // Set values
+
+                    Repository.Update(editModel);
                 }
                 else
                 {
@@ -143,7 +130,7 @@ namespace CentACS.Admin.Controllers
 
             if (Repository.ContainsKey(id))
             {
-                deleteModel = Repository[id];
+                deleteModel = Repository.GetOne(id);
             }
             else
             {
@@ -158,13 +145,15 @@ namespace CentACS.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            LanguageModel deleteModel = new LanguageModel();
-
             try
             {
                 if (Repository.ContainsKey(id))
                 {
-                    Repository.TryRemove(id, out deleteModel);
+                    LanguageModel deleteModel = new LanguageModel();
+
+                    // Set Values
+
+                    Repository.Remove(deleteModel);
                 }
                 else
                 {

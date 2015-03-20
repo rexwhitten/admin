@@ -8,16 +8,20 @@ namespace CentACS.Admin.Repository
     using CentACS.Admin.Models;
     using System.Collections.Concurrent;
 
-    public class BaseRepository<TModel> : ConcurrentDictionary<Int32,TModel> where TModel: IBaseModel
+    public class BaseRepository<TModel> : ConcurrentDictionary<Int32,TModel> where TModel : IBaseModel
     {
+        #region [ Public Methods ] 
         public Int32 GetNextId()
         {
             return this.Keys.Max() + 1;
         }
+        #endregion
 
-        public BaseRepository()
+        #region [ Constructors ]
+        public BaseRepository() : base()
         {
 
         }
+        #endregion
     }
 }

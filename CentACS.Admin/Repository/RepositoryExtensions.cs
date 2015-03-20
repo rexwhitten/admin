@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CentACS.Admin.Repository
 {
-    public class RepositoryExtensions
+    public static class RepositoryExtensions
     {
     }
 }
