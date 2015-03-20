@@ -92,7 +92,12 @@ namespace CentACS.Admin.Repository
 
         public IEnumerable<LanguageModel> Query(Func<LanguageModel, bool> func)
         {
-            return this.Query(func);
+            if (this.Count == 0)
+            {
+                this.GetAll();
+            }
+
+            return this.ExecQuery(func);
         }
     }
 }
