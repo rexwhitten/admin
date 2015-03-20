@@ -21,6 +21,6 @@ namespace CentACS.Admin.Repository
 
         bool ContainsKey(int id);
 
-        IEnumerable<TModel> Where(Func<TModel, bool> func);
+        IEnumerable<TModel> Query(Func<TModel, bool> func);
     }
 }

@@ -208,6 +208,7 @@
     <Compile Include="Models\LanguageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\TemplateFieldIndexViewModel.cs" />
     <Compile Include="Models\TemplateFieldModel.cs" />
     <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Models\TemplateViewModel.cs" />
@@ -293,11 +294,11 @@
     <Content Include="Views\Template\Create.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Template\Index.cshtml" />
+    <Content Include="Views\TemplateField\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\Map\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TemplateField\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -90,9 +90,9 @@ namespace CentACS.Admin.Repository
         }
 
 
-        public IEnumerable<LanguageModel> Where(Func<LanguageModel, bool> func)
+        public IEnumerable<LanguageModel> Query(Func<LanguageModel, bool> func)
         {
-            return this.Where(func);
+            return this.Query(func);
         }
     }
 }

@@ -96,14 +96,12 @@ namespace CentACS.Admin.Repository
             // Db 
             if (this.Count == 0)
             {
-                Db.tblWorkplace_LanguageCapacitorHighPerformance
-                  .Select(r => new TemplateFieldModel()
+                var results = Db.tblWorkplace_LanguageCapacitorHighPerformance.Where(r => r.LanguageKey > 0).ToList();
+
+                results.Select(r => new TemplateFieldModel()
                   {
                       Key = r.CapacitorHighPerfKey,
-                      BaseValue = this.Db.tblWorkplace_LanguageCapacitorHighPerformance
-                                        .Where(e => e.LanguageKey == 1 && e.CapacitorHighPerfKey == r.CapacitorHighPerfKey)
-                                        .First()
-                                        .Text,
+                      BaseValue = this.GetBaseTranslatedValue(r.HighPerfStrategy.Value),
                       LanguageKey = r.LanguageKey.Value,
                       Name = "Text",
                       TemplateKey = 1,
@@ -117,10 +115,25 @@ namespace CentACS.Admin.Repository
             return this.Values.ToList();
         }
 
-
-        public IEnumerable<TemplateFieldModel> Where(Func<TemplateFieldModel, bool> func)
+        private string GetBaseTranslatedValue(int HighPerfStrategy)
         {
-            return this.Where(func);
+            string value = "no base value";
+
+            var results = this.Db.tblWorkplace_LanguageCapacitorHighPerformance
+                                        .Where(e => e.LanguageKey == 1 && e.HighPerfStrategy == HighPerfStrategy);
+
+            if (results.Any())
+            {
+                value = results.First().Text;
+            }
+                              
+            return value;
+        }
+
+
+        public IEnumerable<TemplateFieldModel> Query(Func<TemplateFieldModel, bool> func)
+        {
+            return this.Query(func);
         }
     }
 }

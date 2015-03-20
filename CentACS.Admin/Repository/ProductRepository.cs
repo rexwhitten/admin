@@ -102,9 +102,14 @@ namespace CentACS.Admin.Repository
             return this.Values.ToList();
         }
 
-        public IEnumerable<ProductModel> Where(Func<ProductModel, bool> func)
+        public IEnumerable<ProductModel> Query(Func<ProductModel, bool> func)
         {
-            return this.Where(func);
+            if (this.Count == 0)
+            {
+                this.GetAll();
+            }
+
+            return this.ExecQuery(func);
         }
     }
 }

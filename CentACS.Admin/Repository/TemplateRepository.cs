@@ -74,7 +74,7 @@ namespace CentACS.Admin.Repository
                     Key = 1,
                     Name = "Capcitor High Performance",
                     Product = Cluster.Products
-                                      .Where(l => l.Key == 9)
+                                      .Query(l => l.Key == 9)
                                       .First()
                 });
             }
@@ -89,13 +89,13 @@ namespace CentACS.Admin.Repository
             return this.Values.ToList();
         }
 
-        public IEnumerable<TemplateModel> Where(Func<TemplateModel, bool> func)
+        public IEnumerable<TemplateModel> Query(Func<TemplateModel, bool> func)
         {
             // Db 
 
             // Repository 
 
-            return this.Where(func);
+            return this.Query(func);
         }
     }
 }

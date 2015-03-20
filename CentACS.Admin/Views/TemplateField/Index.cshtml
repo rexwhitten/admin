@@ -1,0 +1,44 @@
+﻿@model CentACS.Admin.Models.TemplateFieldIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="page-header">
+            <h2><strong>Workplace 360</strong> <span class="text-primary">Language Capacitor High Performance</span></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12">
+                <ul class="list-group-item">
+                    @foreach (var field in Model.Fields)
+                    {
+                        <li class="list-group-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="text-primary">@field.Name</span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="text-info">@field.BaseValue</span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="text-warning">@field.TranslatedValue</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+</div>
