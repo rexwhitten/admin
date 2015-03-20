@@ -20,8 +20,14 @@ namespace CentACS.Admin.Repository
         #region [ Constructors ]
         public BaseRepository() : base()
         {
-
+            
         }
         #endregion
+
+        public IEnumerable<TModel> ExecQuery(Func<TModel, bool> func)
+        {
+            return this.Where(M => func.Invoke(M.Value) == true)
+                        .Select(M => M.Value);
+        }
     }
 }

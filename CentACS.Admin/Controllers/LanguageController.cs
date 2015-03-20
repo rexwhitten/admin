@@ -32,7 +32,7 @@ namespace CentACS.Admin.Controllers
         {
             LanguageModel model = new LanguageModel();
 
-            var results = Repository.Where(L => L.Key == id);
+            var results = Repository.Query(L => L.Key == id);
 
             if (results.Any())
             {

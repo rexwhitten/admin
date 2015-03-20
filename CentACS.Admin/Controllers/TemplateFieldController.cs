@@ -9,18 +9,25 @@ namespace CentACS.Admin.Controllers
 {
     using CentACS.Admin.Models;
     using CentACS.Admin.Repository;
+    using System.Dynamic;
 
     public class TemplateFieldController : Controller
     {
+        #region [ Repository ] 
         private IRepository<TemplateFieldModel> Repository
         {
             get { return Cluster.TemplateFields; }
         }
+        #endregion
 
-        
         public ActionResult Index()
         {
-            return View();
+            TemplateFieldIndexViewModel viewModel = new TemplateFieldIndexViewModel();
+
+            viewModel.Fields = Repository.GetAll();
+            viewModel.Lanuages = Cluster.Languages.GetAll();
+
+            return View(viewModel);
         }
 
         // GET: TemplateField/Details/5
