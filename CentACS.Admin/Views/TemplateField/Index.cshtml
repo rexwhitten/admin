@@ -12,6 +12,12 @@
     </div>
 
     <div class="row">
+        <select id="_destination">
+            
+        </select>
+    </div>
+
+    <div class="row">
         <div class="container">
             <div class="col-md-12">
                 <ul class="list-group-item">
@@ -39,6 +45,52 @@
     </div>
 
     <div class="row">
-
+        @Json.Encode(Model)
     </div>
 </div>
+
+<script type="text/javascript">
+
+    var SPA = function (data) {
+
+        var spa = {};
+        spa = data;
+
+        spa.LoadView = function () {
+
+            $('#_destination').clear();
+            $.each(data.Languages, function (idx, val) {
+
+                $('#_destination')
+                    .append($("<option></option>")
+                    .attr("value", data.Languages[idx].LanguageKey)
+                    .text(data.Languages[idx].Name));
+
+            });
+
+
+            spa.BindEvents();
+        };
+
+        spa.BindEvents = function () {
+
+        };
+
+        spa.GetLanguageEntries = function (key) {
+            $.each(data.Fields, function (idx, val) {
+                if (data.Fields[idx].LanguageKey == key) {
+                    return data.Fields[idx];
+                }
+            });
+        }
+
+        return spa;
+    };
+
+    var data = {};
+    data = @Html.Raw(Json.Encode(Model));
+
+    var pageMgr = new SPA(data);
+    pageMgr.LoadView();
+
+</script>

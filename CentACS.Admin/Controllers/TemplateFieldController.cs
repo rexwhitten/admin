@@ -74,7 +74,16 @@ namespace CentACS.Admin.Controllers
         // GET: TemplateField/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            TemplateFieldIndexViewModel viewModel = new TemplateFieldIndexViewModel();
+
+            viewModel.Fields = Repository.Query(x => x.LanguageKey == id).ToList();
+            viewModel.Lanuages = Cluster.Languages.Query(x => x.Key == id).ToList();
+
+
+            //viewModel.Fields = Repository.GetAll();
+            //viewModel.Lanuages = Cluster.Languages.GetAll();
+
+            return View(viewModel);
         }
 
         // POST: TemplateField/Edit/5

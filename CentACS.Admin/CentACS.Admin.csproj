@@ -295,6 +295,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\TemplateField\Index.cshtml" />
+    <Content Include="Views\TemplateField\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\Map\" />

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="page-header">
+            <h2><strong>Workplace 360</strong> <span class="text-primary">Language Capacitor High Performance</span></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var field in Model.Fields)
+        {
+            <label class="col-md-1" for="inputFieldName">
+                @field.Name
+            </label>
+            <div class="col-md-11">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @field.BaseValue
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea style="min-height: 80px;" class="form-control" id="ref_@field.BaseValue">@field.TranslatedValue</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+    <br />
+    <div class="row">
+        <input type="submit" class="btn btn-primary pull-right" value="Update" />
+    </div>
+</div>
