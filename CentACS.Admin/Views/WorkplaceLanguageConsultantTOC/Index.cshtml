@@ -1,0 +1,95 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageConsultantTOC>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndivTraitScores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResponseBias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemResponses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TraitBlends)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TraitSummary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Page)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rights)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Introduction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndivTraitScores)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResponseBias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemResponses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TraitBlends)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TraitSummary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Page)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rights)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ConsultantTOCKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ConsultantTOCKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ConsultantTOCKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model CentACS.Admin.Models.TranslationIndexModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h2>Translations</h2>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        @foreach (var product in Model.ProductsList)
+                        {
+                           <li class="list-group-item"><a href="#">@product.ProductName</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    @foreach (var product in Model.ProductsList)
+                    {
+                        <h4>@product.ProductName <span class="text-muted">@product.ProductID</span></h4>
+                        <hr />
+                        <ul class="list-group">
+                            @foreach (var item in Model.TranslationList.Where(i => i.Product.ProductName == product.ProductName))
+                            {
+                                <li class="list-group-item">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <span class="text-primary">@item.Language.Language</span>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                 <div class="btn-group-sm">
+                                                     <a class="btn btn-info" href="@Url.Action("Details","Translation", new { languageKey = item.Language.LanguageKey, productKey = item.Product.ProductKey })"><i class="glyphicon glyphicon-edit"></i> Details</a>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

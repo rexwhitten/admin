@@ -1,0 +1,106 @@
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorIntro
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblWorkplace_LanguageCapacitorIntro</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguageKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DevelopedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DevelopedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SummaryHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SummaryHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SummaryText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SummaryText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReportDescHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReportDescHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReportDescText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReportDescText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CompetencySubHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompetencySubHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CompetencyHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompetencyHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ImportantNote)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ImportantNote)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ImportantNoteText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ImportantNoteText)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LanguageCapacitorKey }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

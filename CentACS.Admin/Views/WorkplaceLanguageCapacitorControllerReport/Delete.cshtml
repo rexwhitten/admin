@@ -1,0 +1,120 @@
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>tblWorkplace_LanguageCapacitorReport</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguageKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReportHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReportHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EstimatedFit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EstimatedFit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.InterpretationOfFit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.InterpretationOfFit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FitLegend)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FitLegend)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OptimumHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OptimumHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ActualHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ActualHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AvailableHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AvailableHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DescriptionHeader)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DescriptionHeader)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IndicatorPrefix)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IndicatorPrefix)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SourceText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SourceText)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

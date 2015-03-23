@@ -1,0 +1,106 @@
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageConsultantTOC
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblWorkplace_LanguageConsultantTOC</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguageKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReportTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReportTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Introduction)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IndivTraitScores)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IndivTraitScores)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ResponseBias)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ResponseBias)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemResponses)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemResponses)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TraitBlends)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TraitBlends)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TraitSummary)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TraitSummary)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Page)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Page)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Rights)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Rights)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ConsultantTOCKey }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

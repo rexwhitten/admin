@@ -1,0 +1,101 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageConsultant>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevelopedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situational)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Polarized)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvidenceBias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvidenceBiasLegend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemResponses)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevelopedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Introduction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situational)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Polarized)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvidenceBias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvidenceBiasLegend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemResponses)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LanguageConsultantKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LanguageConsultantKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LanguageConsultantKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

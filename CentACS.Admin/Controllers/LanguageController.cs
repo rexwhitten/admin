@@ -1,172 +1,128 @@
-﻿using CentACS.Admin.Models;
-using CentACS.Admin.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CentACS.Admin.Data;
 
 namespace CentACS.Admin.Controllers
 {
     public class LanguageController : Controller
     {
-        #region [ Repository ] 
-        private IRepository<LanguageModel> Repository
-        {
-            get { return Cluster.Languages; }
-        }
-        #endregion
+        private CentACSAssessmentsEntities db = new CentACSAssessmentsEntities();
 
         // GET: Language
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            List<LanguageModel> result = new List<LanguageModel>();
-
-            result = Repository.GetAll();
-
-            return View(result);
+            return View(await db.tblMaster_Language.ToListAsync());
         }
 
         // GET: Language/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int? id)
         {
-            LanguageModel model = new LanguageModel();
-
-            var results = Repository.Query(L => L.Key == id);
-
-            if (results.Any())
+            if (id == null)
             {
-                model = results.First();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
+            tblMaster_Language tblMaster_Language = await db.tblMaster_Language.FindAsync(id);
+            if (tblMaster_Language == null)
             {
-                Response.StatusCode = 404;
+                return HttpNotFound();
             }
-
-            return View(model);
+            return View(tblMaster_Language);
         }
 
         // GET: Language/Create
         public ActionResult Create()
         {
-            LanguageModel newModel = new LanguageModel();
-
-            return View(newModel);
+            return View();
         }
 
         // POST: Language/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create([Bind(Include = "LanguageKey,Language,Code,Rank,Active,DateCreated")] tblMaster_Language tblMaster_Language)
         {
-            try
+            if (ModelState.IsValid)
             {
-                LanguageModel inputModel = new LanguageModel();
-
-                if (collection["name"] != null)
-                {
-                    inputModel.Name = collection["name"];
-                }
-
-                inputModel.Key = 0;
-
-                Repository.Create(inputModel);
-
+                db.tblMaster_Language.Add(tblMaster_Language);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(tblMaster_Language);
         }
 
         // GET: Language/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int? id)
         {
-            LanguageModel editModel = new LanguageModel();
-
-            if (Repository.ContainsKey(id))
+            if (id == null)
             {
-                editModel = Repository.GetOne(id);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
+            tblMaster_Language tblMaster_Language = await db.tblMaster_Language.FindAsync(id);
+            if (tblMaster_Language == null)
             {
-                Response.StatusCode = 404;
+                return HttpNotFound();
             }
-
-            return View(editModel);
+            return View(tblMaster_Language);
         }
 
         // POST: Language/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "LanguageKey,Language,Code,Rank,Active,DateCreated")] tblMaster_Language tblMaster_Language)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (Repository.ContainsKey(id))
-                {
-                    LanguageModel editModel = new LanguageModel();
-
-                    // Set values
-
-                    Repository.Update(editModel);
-                }
-                else
-                {
-                    Response.StatusCode = 404;
-                }
-
+                db.Entry(tblMaster_Language).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(tblMaster_Language);
         }
 
         // GET: Language/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int? id)
         {
-            LanguageModel deleteModel = new LanguageModel();
-
-            if (Repository.ContainsKey(id))
+            if (id == null)
             {
-                deleteModel = Repository.GetOne(id);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
+            tblMaster_Language tblMaster_Language = await db.tblMaster_Language.FindAsync(id);
+            if (tblMaster_Language == null)
             {
-                Response.StatusCode = 404;
+                return HttpNotFound();
             }
-
-
-            return View(deleteModel);
+            return View(tblMaster_Language);
         }
 
         // POST: Language/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            try
+            tblMaster_Language tblMaster_Language = await db.tblMaster_Language.FindAsync(id);
+            db.tblMaster_Language.Remove(tblMaster_Language);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                if (Repository.ContainsKey(id))
-                {
-                    LanguageModel deleteModel = new LanguageModel();
-
-                    // Set Values
-
-                    Repository.Remove(deleteModel);
-                }
-                else
-                {
-                    Response.StatusCode = 404;
-                }
-
-
-                return RedirectToAction("Index");
+                db.Dispose();
             }
-            catch
-            {
-                return View();
-            }
+            base.Dispose(disposing);
         }
     }
 }

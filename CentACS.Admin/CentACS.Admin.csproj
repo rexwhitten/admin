@@ -167,24 +167,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Data\Master360Db.cs" />
-    <Compile Include="App_Code\Attributes\TranslationTableTypeAttribute.cs" />
-    <Compile Include="App_Code\Data\ProductDb.cs" />
-    <Content Include="App_Code\Data\tblMaster360_QuestionnaireItem.cs" />
-    <Content Include="App_Code\Data\tblMaster360_QuestionnaireText.cs" />
-    <Compile Include="App_Code\Data\tblMaster_Language.cs" />
-    <Compile Include="App_Code\Data\tblMaster_Product.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorHighPerformance.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorInterpretation.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorIntro.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageCapacitorReport.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageCompetencyName.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultant.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantBlendText.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantResponseBias.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageConsultantTOC.cs" />
-    <Compile Include="App_Code\Data\tblWorkplace_LanguageNarratorGroup.cs" />
-    <Compile Include="App_Code\Data\WorkplaceDb.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -194,33 +176,582 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\tblMaster_ProductController.cs" />
-    <Compile Include="Controllers\TemplateController.cs" />
-    <Compile Include="Controllers\TemplateFieldController.cs" />
+    <Compile Include="Controllers\TranslationController.cs" />
+    <Compile Include="Models\TranslationDetailViewModel.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageCapacitorController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageCapacitorController2.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageCapacitorController3.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageCapacitorControllerReport.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageCompetencyController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageConsultantBlendController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageConsultantController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageConsultantResponseBiasController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageConsultantTOCController.cs" />
+    <Compile Include="Controllers\WorkplaceLanguageNarratorGroupController.cs" />
+    <Compile Include="Data\CentACSDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CentACSDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CentACSDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CentACSDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CentACSDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\crypto.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagrams.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblAdmin.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblBook.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblCertificationRegistration.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblConsultant.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblCountryCode.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Banner.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Country.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_CustomPrice.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Discount.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Event.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_ItemCode.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Order.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_OrderItem.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_OrderProject.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_Product.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_ProductCategory.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_ProductPrice.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_State.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_TransactionUnit.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblDashboard_TransactionUnitDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Anchor.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Anchor_m2m_Organization.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Competency.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Competency_m2m_Organization.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_QuestionnaireItem.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_QuestionnaireItem_m2m_Organization.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_QuestionnaireText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Rater.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_RaterCategory.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_RaterCategory_m2m_Organization.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster360_Template.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_CareerGuiderModule.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Company.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Competency.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_CompetencyGroup.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_CompetencyType.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_CompetencyType_m2m_Competency.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Competency_m2m_CompetencyGroup.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_DeliveryMethod.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_EmailContent.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Language.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_NormGroup.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Organization.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Product.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Project.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_ProjectType.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Project_m2m_Competency.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Project_m2m_LeaderModule.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Project_m2m_Questionnaire.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Project_m2m_TeamerModule.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_Questionnaire.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_QuestionnaireType.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_User.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_UserAddress.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblMaster_UserData.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblNews.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblProject360_Approval.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblProject360_Questionnaire.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblProject360_Rater.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblProject360_RaterResponse.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblReportGenerationError.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersConverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersDemographics.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersInverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersOriginal.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersRaw.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersStandard.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersStandardInverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_AnswersStandardOptimized.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_LanguageCoverTOC.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_LanguageTrait.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_LanguageTraitDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_Question.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblSchoolplace_QuestionnaireText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersConverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersDemographics.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersInverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersOriginal.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersPolarity.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersRaw.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_AnswersStandard.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageAgencyCommunion.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageAgencyInterpretation.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageBriefDefinition.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageCommunionInterpretation.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageConsistency.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageFullDefinition.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageHeaderFooter.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageInterpretExample.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageIntroMain.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageIntroRightCol.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageJobFamilies.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageJobFamiliesText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageLevelLegend.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageLevelText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageMoralityValues.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageMoralNonMoral.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageSuggestions.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageTOCSubtitles.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageTOCTitles.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValues.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValuesBalance.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValuesBalanceInterpretation.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValuesInLife.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValuesModel.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_LanguageValuesProfile.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_Question.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_QuestionDemographic.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_QuestionDemographicDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblValues_QuestionnaireText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWebserviceError.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersConverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersDemographics.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersInverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersOriginal.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersOriginalResearch.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersRaw.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersStandard.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersStandardInverted.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_AnswersStandardOptimized.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorFitScore.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorHighPerformance.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorInterpretation.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorIntro.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorLowPerformance.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorReport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorTextIndicator.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCapacitorTraitEnergy.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageCompetencyName.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultant.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantBlend.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantBlendRatio.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantBlendText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantIntepretationGuide.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantResponseBias.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantTOC.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageConsultantTraitReport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorGroup.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorNoResearch.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorPartTwo.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorPartTwoIntro.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageNarratorPartTwoValues.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageTrait.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageTraitDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LanguageTraitTOC.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_LeaderModule.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_Question.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_QuestionDemographic.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_QuestionDemographicDetail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_QuestionnaireText.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_QuestionResearch.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tblWorkplace_TeamerModule.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\temp_demo_detail.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\temp_questions.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\temp_traitdescription.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwConsultantCountries.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwConsultantExport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwConsultantMap.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMaster360_ProjectSearch.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMasterExport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMasterTrainerCountries.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMasterTrainerMap.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMaster_Assessees.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMaster_Project.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwMaster_Questionnaire.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwOrderInvoice.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwOrdersFilter.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwSchoolplaceExport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwSchoolplace_LanguageTrait.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwSearchAssessees.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwValuesExport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwWorkplaceExport.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwWorkplace_LanguageNarrator.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwWorkplace_LanguageNarratorPartTwo.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwWorkplace_LanguageTrait.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\vwWorkplace_TeamerParticipants.cs">
+      <DependentUpon>CentACSDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IBaseModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LanguageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ProductModel.cs" />
-    <Compile Include="Models\TemplateFieldIndexViewModel.cs" />
-    <Compile Include="Models\TemplateFieldModel.cs" />
-    <Compile Include="Models\TemplateModel.cs" />
-    <Compile Include="Models\TemplateViewModel.cs" />
+    <Compile Include="Models\TranslationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BaseRepository.cs" />
-    <Compile Include="Repository\Cluster.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\LanguageRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
-    <Compile Include="Repository\RepositoryExtensions.cs" />
-    <Compile Include="Repository\TemplateFieldRepository.cs" />
-    <Compile Include="Repository\TemplateRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +763,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Data\CentACSDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CentACSDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\CentACSDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CentACSDataModel.edmx</DependentUpon>
+      <LastGenOutput>CentACSDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\CentACSDataModel.edmx.diagram">
+      <DependentUpon>CentACSDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\CentACSDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CentACSDataModel.edmx</DependentUpon>
+      <LastGenOutput>CentACSDataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -279,25 +827,75 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Language\Index.cshtml" />
-    <Content Include="Views\Language\Create.cshtml" />
-    <Content Include="Views\Language\Edit.cshtml" />
-    <Content Include="Views\Product\List.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitor\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitor\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitor\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitor\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitor\Index.cshtml" />
+    <Content Include="Views\tblWorkplace_LanguageCapacitorInterpretation\Create.cshtml" />
+    <Content Include="Views\tblWorkplace_LanguageCapacitorInterpretation\Delete.cshtml" />
+    <Content Include="Views\tblWorkplace_LanguageCapacitorInterpretation\Details.cshtml" />
+    <Content Include="Views\tblWorkplace_LanguageCapacitorInterpretation\Edit.cshtml" />
+    <Content Include="Views\tblWorkplace_LanguageCapacitorInterpretation\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController2\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController2\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController2\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController2\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController2\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController3\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController3\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController3\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController3\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorController3\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorControllerReport\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorControllerReport\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorControllerReport\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorControllerReport\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCapacitorControllerReport\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultant\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultant\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultant\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultant\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultant\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCompetency\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCompetency\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCompetency\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCompetency\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageCompetency\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantBlend\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantBlend\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantBlend\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantBlend\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantBlend\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantResponseBias\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantResponseBias\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantResponseBias\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantResponseBias\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantResponseBias\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantTOC\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantTOC\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantTOC\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantTOC\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageConsultantTOC\Index.cshtml" />
+    <Content Include="Views\WorkplaceLanguageNarratorGroup\Create.cshtml" />
+    <Content Include="Views\WorkplaceLanguageNarratorGroup\Delete.cshtml" />
+    <Content Include="Views\WorkplaceLanguageNarratorGroup\Details.cshtml" />
+    <Content Include="Views\WorkplaceLanguageNarratorGroup\Edit.cshtml" />
+    <Content Include="Views\WorkplaceLanguageNarratorGroup\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Template\List.cshtml" />
-    <Content Include="Views\Template\Details.cshtml" />
-    <Content Include="Views\Template\Delete.cshtml" />
-    <Content Include="Views\Template\Edit.cshtml" />
-    <Content Include="Views\Template\Create.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Template\Index.cshtml" />
-    <Content Include="Views\TemplateField\Index.cshtml" />
+    <Content Include="Views\Language\Create.cshtml" />
+    <Content Include="Views\Language\Delete.cshtml" />
+    <Content Include="Views\Language\Details.cshtml" />
+    <Content Include="Views\Language\Edit.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
+    <Content Include="Views\Translation\Index.cshtml" />
+    <Content Include="Views\Translation\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\Map\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +904,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

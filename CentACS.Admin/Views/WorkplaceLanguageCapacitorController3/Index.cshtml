@@ -1,0 +1,95 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageCapacitorIntro>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevelopedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SummaryHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SummaryText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportDescHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportDescText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetencySubHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetencyHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportantNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportantNoteText)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevelopedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummaryHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummaryText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportDescHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportDescText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetencySubHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetencyHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportantNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportantNoteText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LanguageCapacitorKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LanguageCapacitorKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LanguageCapacitorKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

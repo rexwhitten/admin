@@ -1,0 +1,120 @@
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageConsultant
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>tblWorkplace_LanguageConsultant</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguageKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DevelopedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DevelopedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Introduction)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Note)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Note)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NoteText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NoteText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pure)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pure)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Situational)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Situational)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Polarized)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Polarized)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EvidenceBias)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EvidenceBias)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EvidenceBiasLegend)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EvidenceBiasLegend)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemResponses)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemResponses)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

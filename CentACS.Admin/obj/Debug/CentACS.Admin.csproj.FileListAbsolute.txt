@@ -174,3 +174,4 @@ C:\Prog\Clients\rexwhitten\admin\CentACS.Admin\bin\Microsoft.Owin.Security.Micro
 C:\Prog\Clients\rexwhitten\admin\CentACS.Admin\obj\Debug\CentACS.Admin.csprojResolveAssemblyReference.cache
 C:\Prog\Clients\rexwhitten\admin\CentACS.Admin\obj\Debug\CentACS.Admin.dll
 C:\Prog\Clients\rexwhitten\admin\CentACS.Admin\obj\Debug\CentACS.Admin.pdb
+E:\github\admin\CentACS.Admin\obj\Debug\CentACS.Admin.csprojResolveAssemblyReference.cache

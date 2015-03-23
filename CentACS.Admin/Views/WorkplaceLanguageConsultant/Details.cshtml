@@ -1,0 +1,114 @@
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageConsultant
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblWorkplace_LanguageConsultant</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguageKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DevelopedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DevelopedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Introduction)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Note)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Note)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NoteText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NoteText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pure)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pure)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Situational)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Situational)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Polarized)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Polarized)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EvidenceBias)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EvidenceBias)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EvidenceBiasLegend)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EvidenceBiasLegend)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemResponses)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemResponses)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LanguageConsultantKey }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

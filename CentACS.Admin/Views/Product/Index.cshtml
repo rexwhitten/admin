@@ -1,40 +1,59 @@
-﻿@model IEnumerable<CentACS.Admin.Models.ProductModel>
+﻿@model IEnumerable<CentACS.Admin.Data.tblMaster_Product>
 
-<div class="container">
-    <div class="row">
-        <div class="page-header">
-            <div class="btn-group pull-right">
-                <a href="@Url.Action("Create")" class="btn btn-primary">Create</a>
-            </div>
-            <h2>Products</h2>
-        </div>
-    </div>
+@{
+    Layout = null;
+}
 
-    <br/>
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="list-group">
-                @foreach (var item in Model)
-                {
-                    <li class="list-group-item">
-                        <div class="container-fluid">
-                              <div class="row">
-                                  <div class="col-sm-6">
-                                      <span class="text-primary">@item.Name</span>
-                                  </div>
-                                  <div class="col-sm-6">
-                                      <div class="btn-group pull-right">
-                                          <a href="@Url.Action("Edit", new {  id = item.Key })" class="btn btn-default">Edit</a>
-                                          <a href="@Url.Action("Details", new {  id = item.Key })" class="btn btn-default">Details</a>
-                                          <a href="@Url.Action("Delete", new {  id = item.Key })" class="btn btn-default">Delete</a>
-                                      </div>
-                                  </div>
-                              </div>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
+<!DOCTYPE html>
 
-</div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProductKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProductKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProductKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

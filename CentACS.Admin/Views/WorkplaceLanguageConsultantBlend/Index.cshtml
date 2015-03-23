@@ -1,0 +1,113 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageConsultantBlend>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlendEnum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishDefinition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpanishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpanishDefinition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GermanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GermanDefinition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChineseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChineseDefinition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortugueseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortugueseDefinition)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlendEnum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnglishName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnglishDefinition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpanishName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpanishDefinition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GermanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GermanDefinition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChineseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChineseDefinition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortugueseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortugueseDefinition)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ConsultantBlendKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ConsultantBlendKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ConsultantBlendKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
