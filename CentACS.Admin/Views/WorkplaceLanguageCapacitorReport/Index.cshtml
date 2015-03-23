@@ -1,0 +1,101 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageCapacitorReport>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LanguageKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstimatedFit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterpretationOfFit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FitLegend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptimumHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescriptionHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndicatorPrefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SourceText)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedFit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterpretationOfFit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FitLegend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptimumHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionHeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndicatorPrefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LanguageCapacitorCompReportKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LanguageCapacitorCompReportKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LanguageCapacitorCompReportKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

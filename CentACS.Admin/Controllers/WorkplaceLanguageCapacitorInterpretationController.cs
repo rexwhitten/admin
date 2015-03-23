@@ -11,24 +11,26 @@ using CentACS.Admin.Data;
 
 namespace CentACS.Admin.Controllers
 {
-    public class WorkplaceLanguageCapacitorController2 : Controller
+    public class WorkplaceLanguageCapacitorInterpretationController : Controller
     {
         private CentACSAssessmentsEntities db = new CentACSAssessmentsEntities();
 
-        // GET: WorkplaceLanguageCapacitorController2
+        // GET: WorkplaceLanguageCapacitorInterpretation
         public async Task<ActionResult> Index()
         {
             return View(await db.tblWorkplace_LanguageCapacitorInterpretation.ToListAsync());
         }
 
-        // GET: WorkplaceLanguageCapacitorController2/Details/5
-        public async Task<ActionResult> Details(int? id)
+        // GET: WorkplaceLanguageCapacitorInterpretation/Details/5
+        public async Task<ActionResult> Details(int? languageKey)
         {
-            if (id == null)
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageCapacitorInterpretation tblWorkplace_LanguageCapacitorInterpretation = await db.tblWorkplace_LanguageCapacitorInterpretation.FindAsync(id);
+            tblWorkplace_LanguageCapacitorInterpretation tblWorkplace_LanguageCapacitorInterpretation = await db.tblWorkplace_LanguageCapacitorInterpretation
+                                                                                                                      .Where(l => l.LanguageKey == languageKey)
+                                                                                                                      .FirstAsync();
             if (tblWorkplace_LanguageCapacitorInterpretation == null)
             {
                 return HttpNotFound();
@@ -36,13 +38,18 @@ namespace CentACS.Admin.Controllers
             return View(tblWorkplace_LanguageCapacitorInterpretation);
         }
 
-        // GET: WorkplaceLanguageCapacitorController2/Create
-        public ActionResult Create()
+        // GET: WorkplaceLanguageCapacitorInterpretation/Create
+        public ActionResult Create(Int32 languageKey = 1)
         {
-            return View();
+            var model = new tblWorkplace_LanguageCapacitorInterpretation()
+            {
+                LanguageKey = languageKey
+            };
+
+            return View(model);
         }
 
-        // POST: WorkplaceLanguageCapacitorController2/Create
+        // POST: WorkplaceLanguageCapacitorInterpretation/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,22 +66,25 @@ namespace CentACS.Admin.Controllers
             return View(tblWorkplace_LanguageCapacitorInterpretation);
         }
 
-        // GET: WorkplaceLanguageCapacitorController2/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        // GET: WorkplaceLanguageCapacitorInterpretation/Edit/5
+        public async Task<ActionResult> Edit(int? languageKey)
         {
-            if (id == null)
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageCapacitorInterpretation tblWorkplace_LanguageCapacitorInterpretation = await db.tblWorkplace_LanguageCapacitorInterpretation.FindAsync(id);
-            if (tblWorkplace_LanguageCapacitorInterpretation == null)
-            {
-                return HttpNotFound();
+
+            // analyze results
+            var results = await db.tblWorkplace_LanguageCapacitorInterpretation.Where(L => L.LanguageKey == languageKey).ToListAsync();
+
+            if(results.Any()) {
+                return View(results.First());
             }
-            return View(tblWorkplace_LanguageCapacitorInterpretation);
+
+            return RedirectToAction("Create", new { languageKey = languageKey });
         }
 
-        // POST: WorkplaceLanguageCapacitorController2/Edit/5
+        // POST: WorkplaceLanguageCapacitorInterpretation/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +100,7 @@ namespace CentACS.Admin.Controllers
             return View(tblWorkplace_LanguageCapacitorInterpretation);
         }
 
-        // GET: WorkplaceLanguageCapacitorController2/Delete/5
+        // GET: WorkplaceLanguageCapacitorInterpretation/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -105,7 +115,7 @@ namespace CentACS.Admin.Controllers
             return View(tblWorkplace_LanguageCapacitorInterpretation);
         }
 
-        // POST: WorkplaceLanguageCapacitorController2/Delete/5
+        // POST: WorkplaceLanguageCapacitorInterpretation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

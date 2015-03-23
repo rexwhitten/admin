@@ -11,38 +11,42 @@ using CentACS.Admin.Data;
 
 namespace CentACS.Admin.Controllers
 {
-    public class WorkplaceLanguageCapacitorController : Controller
+    public class WorkplaceCapacitorHighPerformanceController : Controller
     {
+        #region [ Repository ]
         private CentACSAssessmentsEntities db = new CentACSAssessmentsEntities();
+        #endregion
 
-        // GET: WorkplaceLanguageCapacitor
+        // GET: WorkplaceCapacitorHighPerformance
         public async Task<ActionResult> Index()
         {
-            return PartialView(await db.tblWorkplace_LanguageCapacitorHighPerformance.ToListAsync());
+            return View(await db.tblWorkplace_LanguageCapacitorHighPerformance.ToListAsync());
         }
 
-        // GET: WorkplaceLanguageCapacitor/Details/5
-        public async Task<ActionResult> Details(int? id)
+        // GET: WorkplaceCapacitorHighPerformance/Details/5
+        public async Task<ActionResult> Details(int? languageKey)
         {
-            if (id == null)
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageCapacitorHighPerformance tblWorkplace_LanguageCapacitorHighPerformance = await db.tblWorkplace_LanguageCapacitorHighPerformance.FindAsync(id);
+
+            tblWorkplace_LanguageCapacitorHighPerformance tblWorkplace_LanguageCapacitorHighPerformance = await db.tblWorkplace_LanguageCapacitorHighPerformance.Where(I => I.LanguageKey == languageKey).FirstAsync();
             if (tblWorkplace_LanguageCapacitorHighPerformance == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(tblWorkplace_LanguageCapacitorHighPerformance);
+
+            return View(tblWorkplace_LanguageCapacitorHighPerformance);
         }
 
-        // GET: WorkplaceLanguageCapacitor/Create
+        // GET: WorkplaceCapacitorHighPerformance/Create
         public ActionResult Create()
         {
-            return PartialView();
+            return View();
         }
 
-        // POST: WorkplaceLanguageCapacitor/Create
+        // POST: WorkplaceCapacitorHighPerformance/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -56,25 +60,32 @@ namespace CentACS.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            return PartialView(tblWorkplace_LanguageCapacitorHighPerformance);
+            return View(tblWorkplace_LanguageCapacitorHighPerformance);
         }
 
-        // GET: WorkplaceLanguageCapacitor/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        // GET: WorkplaceCapacitorHighPerformance/Edit/5
+        public async Task<ActionResult> Edit(int? languageKey)
         {
-            if (id == null)
+            tblWorkplace_LanguageCapacitorHighPerformance model = new tblWorkplace_LanguageCapacitorHighPerformance();
+
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageCapacitorHighPerformance tblWorkplace_LanguageCapacitorHighPerformance = await db.tblWorkplace_LanguageCapacitorHighPerformance.FindAsync(id);
-            if (tblWorkplace_LanguageCapacitorHighPerformance == null)
+
+            // Check Results 
+            var results = await db.tblWorkplace_LanguageCapacitorHighPerformance.Where(l => l.LanguageKey == languageKey).ToListAsync();
+
+            if (results.Any()) 
             {
-                return HttpNotFound();
+                model = results.First();
+                return View(model);
             }
-            return PartialView(tblWorkplace_LanguageCapacitorHighPerformance);
+
+            return RedirectToAction("Create", model);
         }
 
-        // POST: WorkplaceLanguageCapacitor/Edit/5
+        // POST: WorkplaceCapacitorHighPerformance/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -87,10 +98,10 @@ namespace CentACS.Admin.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return PartialView(tblWorkplace_LanguageCapacitorHighPerformance);
+            return View(tblWorkplace_LanguageCapacitorHighPerformance);
         }
 
-        // GET: WorkplaceLanguageCapacitor/Delete/5
+        // GET: WorkplaceCapacitorHighPerformance/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -102,10 +113,10 @@ namespace CentACS.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return PartialView(tblWorkplace_LanguageCapacitorHighPerformance);
+            return View(tblWorkplace_LanguageCapacitorHighPerformance);
         }
 
-        // POST: WorkplaceLanguageCapacitor/Delete/5
+        // POST: WorkplaceCapacitorHighPerformance/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

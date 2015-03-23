@@ -22,13 +22,15 @@ namespace CentACS.Admin.Controllers
         }
 
         // GET: WorkplaceLanguageCompetency/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int? languageKey)
         {
-            if (id == null)
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageCompetencyName tblWorkplace_LanguageCompetencyName = await db.tblWorkplace_LanguageCompetencyName.FindAsync(id);
+            tblWorkplace_LanguageCompetencyName tblWorkplace_LanguageCompetencyName = await db.tblWorkplace_LanguageCompetencyName
+                                                                                                    .Where(l => l.LanguageKey == languageKey)
+                                                                                                    .FirstAsync();
             if (tblWorkplace_LanguageCompetencyName == null)
             {
                 return HttpNotFound();

@@ -1,4 +1,4 @@
-﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorInterpretation
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorHighPerformance
 
 @{
     Layout = null;
@@ -9,23 +9,21 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Create</title>
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     
     
-    @using (Html.BeginForm())
+    @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
         
         <div class="form-horizontal">
-            <h4>tblWorkplace_LanguageCapacitorInterpretation</h4>
+            <h4>Capacitor High Performance</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.CapacitorInterpretationKey)
-    
             <div class="form-group">
                 @Html.LabelFor(model => model.LanguageKey, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -35,10 +33,10 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.FitInterpretation, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.HighPerfStrategy, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.FitInterpretation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FitInterpretation, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.HighPerfStrategy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HighPerfStrategy, "", new { @class = "text-danger" })
                 </div>
             </div>
     
@@ -52,7 +50,7 @@
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>

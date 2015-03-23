@@ -1,4 +1,4 @@
-﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorInterpretation
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorLowPerformance
 
 @{
     Layout = null;
@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-        <h4>tblWorkplace_LanguageCapacitorInterpretation</h4>
+        <h4>tblWorkplace_LanguageCapacitorLowPerformance</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -25,11 +25,11 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.FitInterpretation)
+                @Html.DisplayNameFor(model => model.LowPerfStrategy)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.FitInterpretation)
+                @Html.DisplayFor(model => model.LowPerfStrategy)
             </dd>
     
             <dt>
@@ -43,7 +43,7 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.CapacitorInterpretationKey }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CapacitorLowPerfKey }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </body>

@@ -1,4 +1,4 @@
-﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorHighPerformance
+﻿@model CentACS.Admin.Data.tblWorkplace_LanguageCapacitorInterpretation
 
 @{
     Layout = null;
@@ -21,10 +21,10 @@
         @Html.AntiForgeryToken()
         
         <div class="form-horizontal">
-            <h4>tblWorkplace_LanguageCapacitorHighPerformance</h4>
+            <h4>Capacitor Interpretation</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.CapacitorHighPerfKey)
+            @Html.HiddenFor(model => model.CapacitorInterpretationKey)
     
             <div class="form-group">
                 @Html.LabelFor(model => model.LanguageKey, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -35,10 +35,10 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.HighPerfStrategy, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.FitInterpretation, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.HighPerfStrategy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HighPerfStrategy, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.FitInterpretation, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FitInterpretation, "", new { @class = "text-danger" })
                 </div>
             </div>
     
@@ -59,7 +59,7 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        <a href="@Url.Action("Details","Translation", new { languageKey = Model.LanguageKey, productKey = 2})">Back</a>
     </div>
 </body>
 </html>

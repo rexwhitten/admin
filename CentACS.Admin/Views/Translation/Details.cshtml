@@ -7,17 +7,72 @@
 
 <div class="container-fluid">
     <div class="page-header">
-        <h2>@ViewBag.Title </h2>
+        <span class="text-info pull-right"><h3>@Model.Language.Language</h3></span>
+        <h2>@Model.Product.ProductName  <span class="text-muted">@Model.Product.ProductID</span></h2>
     </div>
 
     <!-- Listing of Product Specific Tables-->
-    <div class="row">
+    <div class="row" id="listing">
         <div class="col-md-12">
-            
-
-            @Model.
-            
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageCapacitorLowPerformance", new { languageKey = Model.Language.LanguageKey })">Capacitor Low Performance</a>
+                </li>
+                <li class="list-group-item">
+                   <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceCapacitorHighPerformance", new  { languageKey = Model.Language.LanguageKey })">Capacitor High Performance</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageCapacitorInterpretation", new { languageKey = Model.Language.LanguageKey })">Capacitor Interpretation</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageCapacitorIntro", new { languageKey = Model.Language.LanguageKey })">Capacitor Intro</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageCapacitorReport", new { languageKey = Model.Language.LanguageKey })">Capacitor Report</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageCompentency", new { languageKey = Model.Language.LanguageKey })">Compentency</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageConsultantBlend", new { languageKey = Model.Language.LanguageKey })">Consultant Blend</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageConsultantResponseBias", new { languageKey = Model.Language.LanguageKey })">Consultant Response Bias</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageConsultantTOC", new { languageKey = Model.Language.LanguageKey })">Consultant TOC</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-link transition" data-path="@Url.Action("Edit", "WorkplaceLanguageNarratorGroup", new { id = 1 })">Narrator Group</a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <!-- Details -->
+    <div class="row hidden" id="tran_detail">
+
+
+    </div>
+
 </div>
+
+<script type="text/javascript">
+    // Extract to Library one day 
+
+    $('.transition').on('click', function () {
+        var $list = $('#listing');
+        var $tran_detail = $('#tran_detail');
+        var url = $(this).attr('data-path');
+        $tran_detail.empty()
+                     .load(url, function () {
+                         $('#listing').addClass('hidden');
+                         $('#tran_detail').removeClass('hidden');
+                     });
+
+    });
+
+
+
+
+</script>

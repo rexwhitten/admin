@@ -12,7 +12,10 @@ namespace CentACS.Admin.Controllers
 {
     public class TranslationController : Controller
     {
+        #region [ Properties ] 
         private CentACSAssessmentsEntities db = new CentACSAssessmentsEntities();
+        #endregion
+
 
         // GET: Translation
         public ActionResult Index()
@@ -42,6 +45,7 @@ namespace CentACS.Admin.Controllers
         {
             TranslationDetailViewModel model = new Models.TranslationDetailViewModel();
 
+            // Build Model
             model.Language = this.db.tblMaster_Language.Where(l => l.LanguageKey == languageKey).FirstOrDefault();
             model.Product = this.db.tblMaster_Product.Where(p => p.ProductKey == productKey).FirstOrDefault();
 

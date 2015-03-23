@@ -1,0 +1,107 @@
+﻿@model IEnumerable<CentACS.Admin.Data.tblWorkplace_LanguageCapacitorTextIndicator>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetencyKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishCompetencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishIndicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpanishCompetencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpanishIndicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GermanCompetencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GermanIndicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChineseCompetencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChineseIndicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortugueseCompetencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortugueseIndicator)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetencyKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnglishCompetencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnglishIndicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpanishCompetencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpanishIndicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GermanCompetencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GermanIndicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChineseCompetencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChineseIndicator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortugueseCompetencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortugueseIndicator)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Workplace_CapacitorTextIndicatorKey }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Workplace_CapacitorTextIndicatorKey }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Workplace_CapacitorTextIndicatorKey })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

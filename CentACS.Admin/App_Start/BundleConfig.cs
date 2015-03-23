@@ -25,6 +25,7 @@ namespace CentACS.Admin
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.centacs.css",
                       "~/Content/site.css"));
         }
     }

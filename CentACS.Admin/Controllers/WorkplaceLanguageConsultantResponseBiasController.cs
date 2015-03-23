@@ -22,13 +22,13 @@ namespace CentACS.Admin.Controllers
         }
 
         // GET: WorkplaceLanguageConsultantResponseBias/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int? languageKey)
         {
-            if (id == null)
+            if (languageKey == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblWorkplace_LanguageConsultantResponseBias tblWorkplace_LanguageConsultantResponseBias = await db.tblWorkplace_LanguageConsultantResponseBias.FindAsync(id);
+            tblWorkplace_LanguageConsultantResponseBias tblWorkplace_LanguageConsultantResponseBias = await db.tblWorkplace_LanguageConsultantResponseBias.Where(l => l.LanguageKey == languageKey).FirstAsync();
             if (tblWorkplace_LanguageConsultantResponseBias == null)
             {
                 return HttpNotFound();
